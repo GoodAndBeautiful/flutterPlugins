@@ -119,6 +119,7 @@ class WebKitWebViewController extends PlatformWebViewController {
         NSKeyValueObservingOptions.newValue,
       },
     );
+    _webView.setAllowsLinkPreview(false);
   }
 
   /// The WebKit WebView being controlled.
@@ -365,7 +366,7 @@ class WebKitWebViewController extends PlatformWebViewController {
     _currentNavigationDelegate = handler;
     return Future.wait(<Future<void>>[
       _webView.setUIDelegate(handler._uiDelegate),
-      _webView.setNavigationDelegate(handler._navigationDelegate)
+      _webView.setNavigationDelegate(handler._navigationDelegate),
     ]);
   }
 
